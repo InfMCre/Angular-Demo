@@ -8,4 +8,8 @@ import { Component } from '@angular/core';
 })
 export class IfsComponent {
 
+  person: IPerson = {
+    name: "Ikasle 1",
+    age: 20
+  }
 }
