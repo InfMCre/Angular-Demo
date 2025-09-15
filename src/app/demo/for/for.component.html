@@ -1,0 +1,15 @@
+<h1>For</h1>
+
+@for (person of people; track person.name) {
+    <p>{{person.name}} || ADINA: {{person.age}}</p>
+
+    <!-- baldintzarekin -->
+    @if (person.age > 20) {
+        <p>20 urte baino gehiago ditu</p>
+    } @else if (person.age < 20) {
+        <p>20 urte baino gutxiago ditu</p>
+    } @else {
+        <p>20 urte ditu</p>
+    }
+
+}
