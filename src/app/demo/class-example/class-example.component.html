@@ -1,0 +1,13 @@
+<h1>Class example</h1>
+
+
+<p [class]="{'more-than-18': newPerson.age > 18}">{{newPerson.name}} || ADINA: {{newPerson.age}}</p>
+
+@for (person of people; track person.name) {
+    <p [class]="{
+        'more-than-18': person.age > 18,
+        'less-than-18': person.age < 18,
+        'equal-than-18': person.age == 18,
+        }"
+    >{{person.name}} || ADINA: {{person.age}}</p>
+}

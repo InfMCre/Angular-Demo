@@ -1,0 +1,11 @@
+.more-than-18 {
+    color: red;
+}
+
+.less-than-18 {
+    color: purple;
+}
+
+.equal-than-18 {
+    color: green;
+}
