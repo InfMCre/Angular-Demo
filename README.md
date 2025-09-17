@@ -85,6 +85,57 @@ Append class to an HTML element depending on variables. Both options can be used
 #### ngClass
 * [ngClass Docs](https://angular.dev/api/common/NgClass)
 
+### Routes
+
+In angular all the routes must be configured into `/src/app/app.routes.ts`
+``` typescript
+import { Routes } from '@angular/router';
+// page import
+import { HomePageComponent } from './pages/home-page/home-page.component';
+// page import
+import { IfPageComponent } from './pages/if-page/if-page.component';
+
+export const routes: Routes = [
+  // URL PATH: http://localhost:4200/
+  { path: '', component: HomePageComponent },
+  // URL PATH: http://localhost:4200/lehenengo-adibidea
+  { path: 'lehenengo-adibidea', component: IfPageComponent }
+];
+```
+
+This components will be loaded into `<router-outlet />`. In this case into `app.html` file.
+
+
+To use Links into the app, we will use anchor with routerLink property
+``` html
+<a routerLink="/route-name">Link Label</a>
+<!-- for "/" route (HomePageComponent) -->
+<a routerLink="/">Home</a>
+<!-- for "/lehenengo-adibidea" route (IfPageComponent) -->
+ <a routerLink="/lehenengo-adibidea">Lehenengo adibidea</a>
+```
+We will need to import
+``` typescript
+import { 
+  RouterOutlet, // if we have router outlet into html
+  RouterLink 
+} from '@angular/router';
+
+// and in the component import append... EXAMPLE:
+@Component({
+  selector: 'app-root',
+  imports: [
+    RouterOutlet, // if we have router outlet into html
+    // NEXT LINE
+    RouterLink
+  ],
+  templateUrl: './app.html',
+  styleUrl: './app.css'
+})
+```
+
+
+
 ## Development server
 
 To start a local development server, run:

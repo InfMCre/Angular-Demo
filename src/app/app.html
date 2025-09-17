@@ -182,31 +182,25 @@
   }
 </style>
 
+<h1>Demo Webgunea</h1>
+
 <main class="main">
   <div class="content">
     <div class="left-side">
 
-     <app-ifs></app-ifs>
+      <a routerLink="/">Home page</a>
+      <br>
+      <a routerLink="/if-adibidea">If page </a>
 
-     <app-for></app-for>
+      <br>
+      <a routerLink="/for-adibidea">For page </a>
+      <br>
+      <a routerLink="/class-adibidea">Class page </a>
 
-     <app-class-example></app-class-example>
-     
     </div>
     <div class="divider" role="separator" aria-label="Divider"></div>
     <div class="right-side">
-
+      <router-outlet/>
     </div>
   </div>
 </main>
-
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
-
-<router-outlet />

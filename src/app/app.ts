@@ -1,16 +1,11 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { IfsComponent } from './demo/ifs/ifs.component';
-import { ForComponent } from './demo/for/for.component';
-import { ClassExampleComponent } from './demo/class-example/class-example.component';
+import { RouterOutlet, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   imports: [
     RouterOutlet, 
-    IfsComponent, 
-    ForComponent, 
-    ClassExampleComponent
+    RouterLink
   ],
   templateUrl: './app.html',
   styleUrl: './app.css'
