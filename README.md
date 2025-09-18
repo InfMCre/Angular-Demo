@@ -86,6 +86,11 @@ Append class to an HTML element depending on variables. Both options can be used
 * [ngClass Docs](https://angular.dev/api/common/NgClass)
 
 ### Routes
+Create routes or diferent "pages" into our App.
+* [Routes Docs](https://angular.dev/guide/routing/define-routes)
+* Example
+  * [Code](https://github.com/InfMCre/Angular-Demo/tree/master/src/app/demo/for): `/src/app/app.routes.ts`
+  * [Commit](https://github.com/InfMCre/Angular-Demo/commit/f847872daa8162d22013006ef32eca99305104c5): `routes.ts, new component as pages, and links into app.html file`
 
 #### Adding Routes to the aplication
 In angular the routes must be configured into `/src/app/app.routes.ts`
