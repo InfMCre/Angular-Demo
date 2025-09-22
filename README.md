@@ -86,8 +86,14 @@ Append class to an HTML element depending on variables. Both options can be used
 * [ngClass Docs](https://angular.dev/api/common/NgClass)
 
 ### Routes
+Create routes or diferent "pages" into our App.
+* [Routes Docs](https://angular.dev/guide/routing/define-routes)
+* Example
+  * [Code](https://github.com/InfMCre/Angular-Demo/tree/master/src/app/demo/for): `/src/app/app.routes.ts`
+  * [Commit](https://github.com/InfMCre/Angular-Demo/commit/f847872daa8162d22013006ef32eca99305104c5): `routes.ts, new component as pages, and links into app.html file`
 
-In angular all the routes must be configured into `/src/app/app.routes.ts`
+#### Adding Routes to the aplication
+In angular the routes must be configured into `/src/app/app.routes.ts`
 ``` typescript
 import { Routes } from '@angular/router';
 // page import
@@ -102,22 +108,48 @@ export const routes: Routes = [
   { path: 'lehenengo-adibidea', component: IfPageComponent }
 ];
 ```
+* **Carefull: Don't put slash (`/`) at the start of any `path` property**
+
+Next line would be wrong and it will throw an error (we can see into our navigator console).
+``` typescript
+export const routes: Routes = [
+  // other routes...
+  { path: '/lehenengo-adibidea', component: IfPageComponent } // WRONG
+];
+```
 
 This components will be loaded into `<router-outlet />`. In this case into `app.html` file.
 
+After doing this, the routes works. you can write `http://localhost:4200/lehenengo-adibidea` and it will load the `IfPageComponent`.
 
-To use Links into the app, we will use anchor with routerLink property
+#### Creating links into Angular
+
+##### - To go to another website (outside our webapp). 
+We will use the anchor HTML element.
 ``` html
+<!-- Syntax -->
+<a href="externalWebsiteUrl"> Link Label</a>
+<!-- Example -->
+<a href="http://google.com"> Go to Google</a>
+
+```
+
+##### - To navigate internally into the app. 
+To use Links to **navigate into our app**, we will use anchor with **`routerLink` property**.
+
+
+``` html
+<!-- Syntax -->
 <a routerLink="/route-name">Link Label</a>
-<!-- for "/" route (HomePageComponent) -->
+<!-- for root "/" route (HomePageComponent) -->
 <a routerLink="/">Home</a>
 <!-- for "/lehenengo-adibidea" route (IfPageComponent) -->
  <a routerLink="/lehenengo-adibidea">Lehenengo adibidea</a>
 ```
-We will need to import
+We will need to import. Be carefull, we will need to import from `@angular/router` package
 ``` typescript
 import { 
-  RouterOutlet, // if we have router outlet into html
+  RouterOutlet, // only if we have router outlet "<router-outlet/>"" into html
   RouterLink 
 } from '@angular/router';
 
@@ -125,8 +157,8 @@ import {
 @Component({
   selector: 'app-root',
   imports: [
-    RouterOutlet, // if we have router outlet into html
-    // NEXT LINE
+    RouterOutlet, // only if we have router outlet "<router-outlet/>"" into html
+    // NEXT LINE to use links.
     RouterLink
   ],
   templateUrl: './app.html',
