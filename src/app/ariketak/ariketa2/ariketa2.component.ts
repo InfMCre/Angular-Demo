@@ -43,6 +43,11 @@ export class Ariketa2Component {
     return this.workers.find(worker => worker.id == idWorker)
   }
 
+  // The scope of the template is limited to the component instance members. If you want to refer to something it needs to be available there
+  public get genderType(): typeof GenderEnum {
+    return GenderEnum;
+  }
+
   // bigarren ariketa
   workerAriketa2: IWorker | undefined;
 

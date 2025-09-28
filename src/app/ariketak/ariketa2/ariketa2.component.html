@@ -1,5 +1,19 @@
 <h1>2. Ariketako 1. Galdera</h1>
 <h3>ID 1 daukan langilea:</h3>
+<!-- it could be null, first option ::: with "?" -->
 <p>{{workerAriketa1?.name}}</p>
+<!-- better if we check first. You can use "?" for properties that could be null, but not really good for objects with many properties -->
+@if (workerAriketa1){
+  <p>workerAriketa1.name</p>
+  <!-- IMPORTANT: genderType is not visible from HTML because is TS import. We need to create in TS file genderType Function -->
+  @if (workerAriketa1.gender == genderType.M) {
+    <p>"M"</p>
+  } @else if (workerAriketa1.gender == genderType.F) {
+    <p>"F"</p>
+  }
+}
+
+
+
 
 <h1>2. Ariketako 2. Galdera</h1>
