@@ -23,9 +23,9 @@ Later we may install more Extensions. At the moment:
   * [Angular API Reference](https://angular.dev/api) 
   * [Angular Docs](https://angular.dev/overview)
 
-## Examples
+# Examples
 
-### Conditionals
+## Conditionals
 Show or hide html content depending on variables
 * [@if Docs](https://angular.dev/api/core/@if)
 * Example
@@ -43,7 +43,7 @@ Show or hide html content depending on variables
 }
 ```
 
-### Loops
+## Loops
 Show a list of elements. `Track` is mandatory (check Docs below)
 * [@for Docs](https://angular.dev/api/core/@for)
 * Example
@@ -57,9 +57,9 @@ Show a list of elements. `Track` is mandatory (check Docs below)
 }
 ```
 
-### Conditional classes to HTML elements
+## Conditional classes to HTML elements
 Append class to an HTML element depending on variables. Both options can be used (Class or ngClass). We will try to use class only
-#### Class
+### Class
 * [ngClass Docs](https://angular.dev/api/common/NgClass#usage-notes)
 * Example
   * [Code](https://github.com/InfMCre/Angular-Demo/tree/master/src/app/demo/class-example): `/src/demo/class-example`
@@ -82,17 +82,71 @@ Append class to an HTML element depending on variables. Both options can be used
 ">{{person.name}} || ADINA: {{person.age}}</p>
 ```
 
-#### ngClass
+### ngClass
 * [ngClass Docs](https://angular.dev/api/common/NgClass)
 
-### Routes
+
+## Interfaces and Enums
+### Interfaces
+In JavaScript, the fundamental way that we group and pass around data is through objects. In TypeScript, we represent those through object types. [Docs](https://www.typescriptlang.org/docs/handbook/2/objects.html).
+
+``` typescript
+export interface IPerson {
+    name: String,
+    age: number
+}
+```
+**To import the interface from other file:**
+``` typescript
+// import
+import { IPerson } from './file/path';
+```
+
+### Enums
+Enums allow a developer to define a set of named constants. Using enums can make it easier to document intent, or create a set of distinct cases. TypeScript provides both numeric and string-based enums. [Docs](https://www.typescriptlang.org/docs/handbook/enums.html)
+``` typescript
+export enum GenderEnum {
+    M,
+    F
+}
+```
+#### If we need to check an Enum from HTML file:
+``` html
+@if (workerAriketa1.gender == genderType.M) {
+  
+}
+```
+genderType wont be recognized from html file, so we must include the next function on typescript file.
+``` typescript
+
+// import GenderEnum
+import { GenderEnum } from './GenderEnum';
+// ............... IMPORTS
+
+@Component({
+  selector: 'app-custom',
+  imports: [],
+  templateUrl: './custom.component.html',
+  styleUrl: './custom.component.css'
+})
+export class CustomComponent {
+  // ............... CODE
+  // The scope of the template is limited to the component instance members. If you want to refer to something it needs to be available there
+  public get genderType(): typeof GenderEnum {
+    return GenderEnum;
+  }
+  // ............... CODE
+
+```
+
+## Routes
 Create routes or diferent "pages" into our App.
 * [Routes Docs](https://angular.dev/guide/routing/define-routes)
 * Example
   * [Code](https://github.com/InfMCre/Angular-Demo/tree/master/src/app/demo/for): `/src/app/app.routes.ts`
   * [Commit](https://github.com/InfMCre/Angular-Demo/commit/f847872daa8162d22013006ef32eca99305104c5): `routes.ts, new component as pages, and links into app.html file`
 
-#### Adding Routes to the aplication
+### Adding Routes to the aplication
 In angular the routes must be configured into `/src/app/app.routes.ts`
 ``` typescript
 import { Routes } from '@angular/router';
@@ -122,9 +176,9 @@ This components will be loaded into `<router-outlet />`. In this case into `app.
 
 After doing this, the routes works. you can write `http://localhost:4200/lehenengo-adibidea` and it will load the `IfPageComponent`.
 
-#### Creating links into Angular
+### Creating links into Angular
 
-##### - To go to another website (outside our webapp). 
+#### - To go to another website (outside our webapp). 
 We will use the anchor HTML element.
 ``` html
 <!-- Syntax -->
@@ -134,7 +188,7 @@ We will use the anchor HTML element.
 
 ```
 
-##### - To navigate internally into the app. 
+#### - To navigate internally into the app. 
 To use Links to **navigate into our app**, we will use anchor with **`routerLink` property**.
 
 
