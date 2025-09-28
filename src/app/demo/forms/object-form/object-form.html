@@ -1,0 +1,24 @@
+<h3>Object form</h3>
+
+<form [formGroup]="personForm" (ngSubmit)="onSubmit()">
+  <label for="name">Name: </label>
+  <input id="name" type="text" formControlName="name" />
+  <label for="age">age: </label>
+  <input id="agee" type="number" formControlName="age" />
+
+
+
+  <p>The current input name is... {{personForm.value.name}}</p>
+  <p>The current input age is... {{personForm.value.age}}</p>
+
+  <button type="button" (click)="setCustomData()">Set Custom Data</button>
+  <button type="button" (click)="setCustomData2()">Set Custom Data 2</button>
+
+  <button type="submit">Submit</button>
+
+</form>
+
+
+
+
+

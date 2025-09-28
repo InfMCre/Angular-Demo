@@ -1,0 +1,15 @@
+<h3>Simple Form</h3>
+<form (submit)="onSubmit($event)" (ngSubmit)="onSubmit($event)">
+
+  <label for="email">Insert your email:</label>
+  <br>
+  <input id="email" type="text" [formControl]="email">
+
+  <p>The current input email is... {{email.value}}</p>
+
+
+  <button type="button" (click)="setCustomEmail()">Set angularrox@gmail.com</button>
+
+  <button type="submit">Submit</button>
+
+</form>

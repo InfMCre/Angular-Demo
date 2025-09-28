@@ -194,7 +194,6 @@ We will use the anchor HTML element.
 #### - To navigate internally into the app. 
 To use Links to **navigate into our app**, we will use anchor with **`routerLink` property**.
 
-
 ``` html
 <!-- Syntax -->
 <a routerLink="/route-name">Link Label</a>
@@ -223,8 +222,69 @@ import {
 })
 ```
 
+### Dynamic Routes
+Dynamic routes use variable segments in a URL, such as /users/[id], to handle multiple, but similar, pages or data points from a single template, eliminating the need to create individual files for each item
+
+#### Important:
+* [Signals](https://angular.dev/guide/signals): A signal is a wrapper around a value that notifies interested consumers when that value changes. Signals can contain any value, from primitives to complex data structures.
+* Define Routes [Docs](https://angular.dev/guide/routing/define-routes#route-url-paths)
+* Read Route State [Docs](https://angular.dev/guide/routing/read-route-state)
+
+Must be configured into `/src/app/app.routes.ts`
+``` typescript
+import { Routes } from '@angular/router';
+// page import
+import { HomePageComponent } from './pages/home-page/home-page.component';
+// page import
+import { IfPageComponent } from './pages/if-page/if-page.component';
+
+export const routes: Routes = [
+  // URL PATH: http://localhost:4200/
+  { path: '', component: HomePageComponent },
+  // URL PATH: http://localhost:4200/lehenengo-adibidea
+  { path: 'lehenengo-adibidea', component: IfPageComponent },
+
+  { path: 'worker/:id', component: WorkerComponent },
+
+];
+```
 
 
+
+``` typescript
+import { Component, inject, signal } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+
+
+@Component({
+  selector: 'app-worker-component',
+  imports: [],
+  templateUrl: './worker-component.html',
+  styleUrl: './worker-component.css'
+})
+export class WorkerComponent {
+
+  workerId = signal('');
+  private activatedRoute = inject(ActivatedRoute);
+
+  constructor() {
+    // when value changes this function will be executed
+    this.activatedRoute.params.subscribe((params) => {
+      this.workerId.set(params['id']);
+    });
+  }
+}
+```
+
+## Forms
+Read about it on...
+* Angular Forms [Docs](https://angular.dev/guide/forms)
+* Angular Reactive Forms [Docs](https://angular.dev/guide/forms/reactive-forms)
+* Angular Reactive Forms [Docs](https://angular.dev/guide/forms/typed-forms)
+
+Examples on...
+
+# ...
 ## Development server
 
 To start a local development server, run:
