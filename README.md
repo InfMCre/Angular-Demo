@@ -139,6 +139,9 @@ export class CustomComponent {
 
 ```
 
+* Example
+  * Code: `/src/app/ariketa2`
+
 ## Routes
 Create routes or diferent "pages" into our App.
 * [Routes Docs](https://angular.dev/guide/routing/define-routes)
