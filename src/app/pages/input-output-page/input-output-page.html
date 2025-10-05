@@ -1,0 +1,41 @@
+<h1>Component</h1>
+
+
+
+<h2>Konponente erabilgarriak</h2>
+
+<p>Pasatu dezakegu informazioa edo gertaerak konponente batetik bestera. Normalena izaten da aita-seme edo seme-aita artean datuak pasatu</p>
+<p>Hau egiten da <b>input</b> eta <b>output</b>-ekin</p>
+<p>Hurrengo adibidean ikusi dezakegu nola pasatzen duen botoiari textua eta nola har dezakegu botoiaren click gertaera. Dokumentazioa beheko adibideetan agertzen da</p>
+
+<app-custom-button [label]="button1Text" (onClick)="button1Click()"></app-custom-button>
+
+<br>
+
+<app-custom-button [label]="button2Text" (onClick)="button1Click()"></app-custom-button>
+
+<br>
+<hr>
+
+
+<h3>Input</h3>
+<p>Konponente bati zerbait pasatzeko input erabiliko dugu. Honekin konponente hauek erabili ditzakegu askotan oso modu erraz eta eroso batean</p>
+<p>· Aita konponentetik, seme konponentera pasatzeko</p>
+<a href="https://angular.dev/guide/components/inputs">Docs</a>
+
+<app-simple-input [name]="username"></app-simple-input>
+
+<app-simple-input [name]="username2"></app-simple-input>
+
+<br>
+<hr>
+
+<h3>Output</h3>
+<p>Konponente seme batetik balore edo gertaera (event) bat aitari pasatzeko</p>
+<p>· Seme konponentetik, aita konponentera pasatzeko</p>
+<a href="https://angular.dev/guide/components/outputs">Docs</a>
+
+<app-simple-output (divClicked)="appSimpleOutputClicked()"></app-simple-output>
+
+
+<!---->
