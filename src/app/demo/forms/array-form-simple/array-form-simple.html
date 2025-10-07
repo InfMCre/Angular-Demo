@@ -1,0 +1,28 @@
+<h3>Object form with Array</h3>
+
+<form [formGroup]="personForm" (ngSubmit)="onSubmit()">
+  <label for="name">Name: </label>
+  <input id="name" type="text" formControlName="name" />
+  <label for="age">age: </label>
+  <input id="agee" type="number" formControlName="age" />
+  
+  <div formArrayName="telephones">
+    <label for="telephones">Telephones:</label>
+    @for (telephone of telephones.controls; track $index) {
+      <label>
+        Telephone {{ $index + 1 }}:
+        <input [formControlName]="$index" />
+        <button type="button" (click)="removeTelephone($index)">Remove</button>
+      </label>
+    }
+  </div>
+      
+  <button type="button" (click)="addTelephone()">Add Telephone</button>
+  <button type="submit">Submit</button>
+
+</form>
+
+<div>
+    the personForm current data: 
+    <pre>{{personForm.value | json }}</pre>
+</div>
